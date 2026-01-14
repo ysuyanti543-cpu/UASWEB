@@ -1,3 +1,4 @@
+<?php include 'security_headers.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -46,16 +47,17 @@
             $dashboardUrl = $base . '/api/dashboard.php';
             $katalogUrl   = $base . '/api/web/katalog.php';
             $logoutUrl    = $base . '/api/logout.php';
+           
 
             // Determine current page for 'active' highlighting
             $current = strtolower($script);
-            $activemenu = (strpos($current, 'menu.php') !== false) ? 'active' : '';
+            $activedashboard = (strpos($current, 'dashboard.php') !== false) ? 'active' : '';
             $activeKatalog   = (strpos($current, 'katalog.php') !== false) ? 'active' : '';
             ?>
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link <?= $activemenu ?>" href="<?= htmlspecialchars($dashboardUrl) ?>">Menu</a>
+                    <a class="nav-link <?= $activedashboard ?>" href="<?= htmlspecialchars($dashboardUrl) ?>">dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?= $activeKatalog ?>" href="<?= htmlspecialchars($katalogUrl) ?>">Katalog</a>
